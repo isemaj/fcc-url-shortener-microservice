@@ -28,7 +28,7 @@ exports.addUrl = (req, res) => {
       if (err) {
         res.json({"error": "invalid Hostname"});
       } else {
-        let convertedLink = Buffer.from(hostnameMatch[0]).toString("base64");
+        let convertedLink = Buffer.from(url).toString("base64");
         UrlEntries.findOne({ "url": convertedLink }, (err, data) => {
           if (err) return;
           if (data) {
@@ -58,11 +58,8 @@ exports.checkUrl = (req, res) => {
     if (err) return;
     if (data) {
       const trueUrl = Buffer.from(data.url, "base64").toString("utf8");
-      console.log(trueUrl)
-      console.log('in here')
       res.redirect(trueUrl);
     } else {
-      console.log("another here")
       res.json({"error": "No shorturl found"});
     }
   })
