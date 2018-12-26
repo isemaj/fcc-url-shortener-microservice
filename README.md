@@ -2,14 +2,12 @@
 
 ## Environment variables 
 
-_Production :_
+**Production :**
+  * MONGODB_URI
 
-**MONGODB_URI**
-
-_Development :_
-
-**MONGODB_URI_DEV**
-**DB**  db name
+**Development :**
+  * MONGODB_URI_DEV
+  * DB  (db name)
 
 _Example for development :_
 DB=mydb
