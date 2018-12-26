@@ -29,7 +29,7 @@ mongoose.connect(mongoURI, connectOption)
 app.use(cors());
 app.use(bodyParser.urlencoded({"extended": false}));
 
-app.set("view engine", "ejs");
+app.set("view engine", "pug");
 
 app.use(express.static("public"));
 
