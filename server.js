@@ -22,7 +22,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 // check the dbpath in /etc/mongodb.conf
 const mongoURI = process.env.NODE_ENV !== "production" ? `${process.env.MONGODB_URI_DEV}${process.env.DB}` : process.env.MONGODB_URI;
-console.log(mongoURI);
 mongoose.connect(mongoURI, connectOption)
   .then(() => console.log("MONGODB connected..."))
   .catch(err => console.log(err));
