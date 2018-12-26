@@ -8,6 +8,22 @@ const protocolRegExp = /^https?:\/\/(.*)/i;
 const hostnameRegExp = /^([a-z0-9\-_]+\.)+[a-z0-9\-_]+/i;
 const forwardSlashRegexp = /\/$/i;
 
+exports.homeUrl = (req, res) => {
+  let host = req.headers.host;
+  let sampleShortUrl;
+  UrlEntries.find({}, (err, docs) => {
+    if (docs.length === 0) {
+      sampleShortUrl = 'post-a-url-first';
+    } else {
+      sampleShortUrl = docs[0].short;
+    }
+    res.render("index", {
+      host,
+      sample: sampleShortUrl,
+      });
+  });
+}
+
 exports.addUrl = (req, res) => {
   let url = req.body.url;
 
