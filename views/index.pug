@@ -1,0 +1,51 @@
+doctype html
+
+html
+  head
+    title URL Shortener
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,700,900', rel='stylesheet', type='text/css')
+    link(href='style.css', rel='stylesheet', type='text/css')
+  body
+    .container
+      h1 AAPI Project: URL Shortener Microservice
+      h3 User Story: 
+      ol.user-stories
+        li
+          | I can POST a URL to 
+          code [project_url]/api/shorturl/new
+          |  and I will receive a shortened URL in the JSON response.
+          br
+          | Example : 
+          code {&quot;original_url&quot;:&quot;www.google.com&quot;,&quot;short_url&quot;:1}
+        li
+          | If I pass an invalid URL that doesn&apos;t follow the 
+          code http(s)://www.example.com(/more/routes)
+          |  format, the JSON response will contain an error like 
+          code {&quot;error&quot;:&quot;invalid URL&quot;}
+          br
+          strong HINT:
+          |  to be sure that the submitted url points to a valid site you can use the function 
+          code dns.lookup(host, cb)
+          |  from the 
+          code dns
+          |  core module.
+        li When I visit the shortened URL, it will redirect me to my original link.
+      h3 Short URL Creation 
+      p
+        | example: 
+        code POST [project_url]/api/shorturl/new
+        |  - 
+        code https://www.google.com
+      form(action='api/shorturl/new', method='POST')
+        label(for='url_input') URL to be shortened
+        input#url_input(type='text', name='url', value='https://www.freecodecamp.com')
+        input.post-button(type='submit', value='POST URL')
+      h3 Example Usage:
+      a(href='https://fcc-url-shortener-microservice-isemaj.glitch.me/api/shorturl/eGfScTXMp')
+        | [this_project_url]/api/shorturl/eGfScTXMp
+      h3 Will Redirect to:
+      p https://forum.freecodecamp.com
+    .footer
+      p
+        | by 
+        a(href='https://github.com/isemaj') James Itum
