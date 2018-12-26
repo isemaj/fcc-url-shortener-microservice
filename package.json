@@ -1,7 +1,7 @@
 {
   "name": "fcc-url-shortener-microservice",
   "version": "1.0.0",
-  "description": "https://isemaj-url-shortener.herokuapp.com/",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
