@@ -33,18 +33,9 @@ app.set("view engine", "pug");
 
 app.use(express.static("public"));
 
-//app.get("/", (req, res) => {
-  //res.sendFile(__dirname + "/public/index.html");
-//})
-
-//app.set("views", __dirname + "public");
-
-app.get("/", (req, res) => {
-  res.render("index");
-})
-
+app.get("/", urlHandler.homeUrl);
 app.post("/api/shorturl/new", urlHandler.addUrl);
-app.get("/api/shorturl/:hashurl", urlHandler.checkUrl)
+app.get("/api/shorturl/:hashurl", urlHandler.checkUrl);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
