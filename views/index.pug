@@ -41,8 +41,7 @@ html
         input#url_input(type='text', name='url', value='https://www.freecodecamp.com')
         input.post-button(type='submit', value='POST URL')
       h3 Example Usage:
-      // a(href=host + '/api/shorturl/' + =sampleShortUrl target="_blank")
-      a(href=`${host}/api/shorturl/${sample}` target="_blank")
+      a(href=`/api/shorturl/${sample}` target="_blank")
         | [this_project_url]/api/shorturl/#{sample}
       h3 Will Redirect to:
       p https://forum.freecodecamp.com

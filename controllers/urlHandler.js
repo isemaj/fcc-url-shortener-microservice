@@ -9,7 +9,6 @@ const hostnameRegExp = /^([a-z0-9\-_]+\.)+[a-z0-9\-_]+/i;
 const forwardSlashRegexp = /\/$/i;
 
 exports.homeUrl = (req, res) => {
-  let host = req.headers.host;
   let sampleShortUrl;
   UrlEntries.find({}, (err, docs) => {
     if (docs.length === 0) {
@@ -18,7 +17,6 @@ exports.homeUrl = (req, res) => {
       sampleShortUrl = docs[0].short;
     }
     res.render("index", {
-      host,
       sample: sampleShortUrl,
       });
   });
